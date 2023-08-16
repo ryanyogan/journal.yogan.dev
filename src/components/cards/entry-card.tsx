@@ -12,13 +12,14 @@ export function EntryCard({ entry }: EntryCardProps) {
   return (
     <Card className="cursor-pointer">
       <CardHeader>
-        <CardTitle className="text-md text-black font-medium">{date}</CardTitle>
+        <CardTitle className="text-lg text-black font-medium">{date}</CardTitle>
       </CardHeader>
       <CardContent>
+        <div className="w-full text-black font-light py-4">
+          {entry.content.slice(0, 50)}
+        </div>
         <Separator />
-        <div className="w-full text-neutral-400 py-4">Summary</div>
-        <Separator />
-        <div className="w-full text-neutral-400 py-4">Mood</div>
+        <div className="w-full text-neutral-600 py-4">Mood</div>
       </CardContent>
     </Card>
   );
