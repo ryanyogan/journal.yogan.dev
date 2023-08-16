@@ -1,5 +1,11 @@
 export const runtime = "edge";
 
-export default function EditorPage() {
+type IParams = {
+  params: {
+    id: string;
+  };
+};
+
+export default function EditorPage({ params }: IParams) {
   return <div>EditorPage</div>;
 }
