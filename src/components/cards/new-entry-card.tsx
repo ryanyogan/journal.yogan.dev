@@ -1,6 +1,7 @@
 "use client";
 
 import { createNewEntry } from "@/lib/api";
+import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
@@ -25,12 +26,13 @@ export function NewEntryCard() {
       className="cursor-pointer hover:border hover:border-neutral-700/60 transition-colors ease-in-out duration-300"
     >
       <CardHeader>
-        <CardTitle>New Entry</CardTitle>
+        <CardTitle className={cn(isLoading && "animate-pulse")}>
+          {isLoading ? "Creating..." : "New Entry"}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         {isLoading ? (
           <div className="space-y-4">
-            <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
           </div>
