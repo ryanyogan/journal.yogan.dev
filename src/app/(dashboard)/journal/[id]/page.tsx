@@ -25,6 +25,10 @@ async function getEntry(id: string) {
 export default async function EntryPage({ params }: IParams) {
   const entry = await getEntry(params.id);
 
+  if (!entry) {
+    return null;
+  }
+
   return (
     <div>
       <Editor entry={entry} />
