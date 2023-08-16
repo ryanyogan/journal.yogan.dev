@@ -11,7 +11,7 @@ export function EntryCard({ entry }: EntryCardProps) {
   return (
     <Card className="cursor-pointer hover:border hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
       <CardHeader>
-        <CardTitle className="text-lg text-black font-medium tracking-tighter">
+        <CardTitle className="text-2xl text-black font-medium tracking-tighter">
           {date}
         </CardTitle>
       </CardHeader>
