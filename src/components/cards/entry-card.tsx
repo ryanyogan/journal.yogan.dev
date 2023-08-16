@@ -11,8 +11,10 @@ export function EntryCard({ entry }: EntryCardProps) {
 
   return (
     <Card className="cursor-pointer">
-      <CardHeader>
-        <CardTitle className="text-lg text-black font-medium">{date}</CardTitle>
+      <CardHeader className="border-b border-neutral-200 shadow-sm">
+        <CardTitle className="text-lg text-black font-medium tracking-tighter">
+          {date}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="w-full text-black font-light py-4">
