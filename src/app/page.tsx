@@ -1,21 +1,24 @@
+import { buttonVariants } from "@/components/ui/button";
+import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 
 export const runtime = "edge";
 
 export default function Home() {
+  const { userId } = auth();
+
+  let href = userId ? "/journal" : "/new-user";
+
   return (
-    <div className="w-screen h-screen bg-black flex justify-center items-center text-white">
-      <div className="max-w-2xl w-full mx-auto">
-        <h1 className="text-6xl mb-4">The best journal app, period.</h1>
-        <p className="text-2xl text-white/60 mb-4">
-          This is the best app for tracking your mood throughout your life. All
-          you have to do is be honest
+    <div className="w-screen h-screen bg-neutral flex flex-col justify-center items-center text-black">
+      <div className="max-w-2xl space-y-4 w-full mx-auto p-4">
+        <h1 className="text-6xl">journal,</h1>
+        <p className="text-2xl text-black">
+          write some shit down and see how your mood trends
         </p>
-        <div>
-          <Link href="/journal">
-            <button className="bg-blue-600 px-4 py-2 rounded-lg text-xl">
-              get started
-            </button>
+        <div className="flex flex-row justify-start">
+          <Link href={href} className={buttonVariants()}>
+            Get Started Now
           </Link>
         </div>
       </div>
