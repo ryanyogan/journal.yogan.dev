@@ -20,7 +20,7 @@ export function NewEntryCard() {
   };
 
   return (
-    <Card className="cursor-pointer shadow bg-neutral" onClick={handleOnClick}>
+    <Card className="cursor-pointer hover:border hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
       <CardHeader>
         <CardTitle>New Entry</CardTitle>
       </CardHeader>
@@ -33,9 +33,8 @@ export function NewEntryCard() {
           </div>
         ) : (
           <div>
-            <p className="text-black font-semibold">
-              Click to create a new journal entry, and remember to brush your
-              teeth.
+            <p className="text-neutral-700 underline decoration-neutral-300">
+              Create a new entry for the greater good.
             </p>
           </div>
         )}
