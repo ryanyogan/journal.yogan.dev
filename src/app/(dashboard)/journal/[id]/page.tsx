@@ -45,11 +45,11 @@ export default async function EntryPage({ params }: IParams) {
   ];
 
   return (
-    <div className="h-full w-full grid grid-cols-1 gap-x-2 sm:grid-cols-3">
-      <div className="sm:col-span-2">
+    <div className="h-full w-full flex gap-y-4 sm:gap-x-4 flex-wrap flex-col sm:justify-start sm:flex-row">
+      <div className="sm:flex-1">
         <Editor entry={entry} />
       </div>
-      <div>
+      <div className="min-w-[300px]">
         <Card>
           <CardHeader>
             <CardTitle className="flex flex-row items-center justify-between">
