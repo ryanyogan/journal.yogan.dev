@@ -17,10 +17,9 @@ export async function createNewEntry() {
 
 export async function updateEntry(content: string, id: string) {
   const res = await fetch(
-    new Request(createURL("/api/journal"), {
-      method: "POST",
+    new Request(createURL(`/api/journal/${id}`), {
+      method: "PATCH",
       body: JSON.stringify({
-        id,
         content,
       }),
     })
