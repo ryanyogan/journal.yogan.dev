@@ -38,7 +38,7 @@ export function NewEntryCard() {
           </div>
         ) : (
           <div>
-            <p className="text-neutral-700 underline decoration-neutral-300">
+            <p className="underline decoration-neutral-300">
               Create a new entry for the greater good.
             </p>
           </div>

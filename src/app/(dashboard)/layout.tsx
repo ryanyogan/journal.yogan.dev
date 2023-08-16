@@ -1,4 +1,5 @@
 import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function DashboardLayout({
   children,
@@ -12,7 +13,12 @@ export default function DashboardLayout({
       </aside> */}
       <div className="h-full overflow-hidden">
         <header className="relative w-full h-[60px] border-b border-neutral-200">
-          <div className="h-full w-full px-6 flex items-center justify-end">
+          <div className="h-full w-full px-6 flex items-center justify-between">
+            <Link href="/journal">
+              <h1 className="text-black text-xl font-bold tracking-tighter">
+                J O U R N A L
+              </h1>
+            </Link>
             <UserButton />
           </div>
         </header>

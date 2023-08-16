@@ -1,3 +1,5 @@
+import { revalidatePath } from "next/cache";
+
 const createURL = (path: string) => {
   return window.location.origin + path;
 };
@@ -35,4 +37,6 @@ export async function updateEntry({
     const data = await res.json();
     return data.data;
   }
+
+  revalidatePath("/journal");
 }

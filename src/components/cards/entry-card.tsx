@@ -2,6 +2,7 @@ import { JournalEntry } from "@prisma/client";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -25,24 +26,13 @@ export function EntryCard({ entry }: EntryCardProps) {
   });
 
   return (
-    <Card className="cursor-pointer hover:border hover:shadow hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
+    <Card className="flex flex-col sm:h-[225px] cursor-pointer hover:border hover:shadow hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
       <CardHeader>
-        <CardTitle className="text-2xl text-black font-medium tracking-tighter">
-          {date}
-        </CardTitle>
+        <CardTitle>{date}</CardTitle>
+        <CardDescription>{time}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="w-full flex flex-col space-y-4 text-neutral-500">
-          <p>{entry.content.slice(0, 50)}</p>
-        </div>
-      </CardContent>
-      <CardFooter>
-        <div className="flex w-full flex-row justify-between">
-          <div>😁</div>
-
-          <div className="text-neutral-400">{time}</div>
-        </div>
-      </CardFooter>
+      <CardContent className="flex-1">{entry.content.slice(0, 50)}</CardContent>
+      <CardFooter>😁</CardFooter>
     </Card>
   );
 }

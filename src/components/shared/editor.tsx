@@ -34,8 +34,8 @@ export function Editor({ entry }: EditorProps) {
       <Textarea
         spellCheck
         tabIndex={0}
-        className="sm:text-sm text-black"
-        rows={10}
+        className="text-[16px] sm:text-sm text-black"
+        rows={20}
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
