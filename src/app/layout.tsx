@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Yournal",
-  description: "Journal your day",
+  title: "Journal",
+  description: "Journal Your Day",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="antialiased">
         <body className={inter.className}>{children}</body>
       </html>
     </ClerkProvider>
