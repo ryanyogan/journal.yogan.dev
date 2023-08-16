@@ -28,6 +28,7 @@
     "next": "13.4.16",
     "postcss": "8.4.28",
     "react": "18.2.0",
+    "react-autosave": "^0.4.2",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "tailwind-merge": "^1.14.0",

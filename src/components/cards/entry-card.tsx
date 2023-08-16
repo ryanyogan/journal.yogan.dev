@@ -12,20 +12,20 @@ interface EntryCardProps {
 }
 
 export function EntryCard({ entry }: EntryCardProps) {
-  const date = new Date(entry.createdAt).toLocaleDateString("en-US", {
+  const date = new Date(entry.updatedAt).toLocaleDateString("en-US", {
     day: "2-digit",
     month: "short",
     year: "numeric",
   });
 
-  const time = new Date(entry.createdAt).toLocaleTimeString("en-US", {
+  const time = new Date(entry.updatedAt).toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
   });
 
   return (
-    <Card className="cursor-pointer hover:border hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
+    <Card className="cursor-pointer hover:border hover:shadow hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
       <CardHeader>
         <CardTitle className="text-2xl text-black font-medium tracking-tighter">
           {date}
