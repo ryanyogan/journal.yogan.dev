@@ -20,7 +20,10 @@ export function NewEntryCard() {
   };
 
   return (
-    <Card className="cursor-pointer hover:border hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
+    <Card
+      onClick={handleOnClick}
+      className="cursor-pointer hover:border hover:border-neutral-700/60 transition-colors ease-in-out duration-300"
+    >
       <CardHeader>
         <CardTitle>New Entry</CardTitle>
       </CardHeader>
