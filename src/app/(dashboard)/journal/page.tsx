@@ -11,8 +11,8 @@ export default async function JournalPage() {
 
   return (
     <div className="mb-20">
-      <h2 className="text-xl sm:text-3xl text-black font-semibold">Journal</h2>
-      <Separator className="my-4 sm:my-8" />
+      <h2 className="text-3xl text-black font-semibold">Journal</h2>
+      <Separator className="my-8" />
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <NewEntryCard />
 
