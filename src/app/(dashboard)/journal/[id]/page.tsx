@@ -26,6 +26,9 @@ async function getEntry(id: string) {
       id,
       userId: user.id,
     },
+    include: {
+      analysis: true,
+    },
   });
 
   return entry;
@@ -39,10 +42,10 @@ export default async function EntryPage({ params }: IParams) {
   }
 
   const analysisData = [
-    { name: "Summary", value: "" },
-    { name: "Subject", value: "" },
-    { name: "Mood", value: "" },
-    { name: "Negative", value: "false" },
+    { name: "Summary", value: entry?.analysis?.summary },
+    { name: "Subject", value: entry?.analysis?.subject },
+    { name: "Mood", value: entry?.analysis?.mood },
+    { name: "Negative", value: entry?.analysis?.negative },
   ];
 
   return (
@@ -57,12 +60,21 @@ export default async function EntryPage({ params }: IParams) {
         <div className="sm:flex-1">
           <Editor entry={entry} />
         </div>
-        <div className="min-w-[300px]">
-          <Card>
+        <div className="w-full sm:max-w-sm">
+          <Card className="w-full">
             <CardHeader>
               <CardTitle className="flex flex-row items-center justify-between">
                 Analysis
-                <Badge className="bg-green-500 px-3 py-1">Good Mood</Badge>
+                <Badge
+                  className="px-3 py-1"
+                  style={{
+                    backgroundColor: entry?.analysis?.color
+                      ? entry?.analysis?.color
+                      : "",
+                  }}
+                >
+                  Good Mood
+                </Badge>
               </CardTitle>
               <CardDescription>Statistics from your entry.</CardDescription>
             </CardHeader>
@@ -71,7 +83,7 @@ export default async function EntryPage({ params }: IParams) {
                 {analysisData.map((item) => (
                   <li
                     key={item.name}
-                    className="py-2 text-neutral-700 text-sm flex items-center justify-between"
+                    className="py-2 text-neutral-700 text-sm flex flex-col items-start"
                   >
                     <span className="font-semibold">{item.name}</span>
                     <span className="text-neutral-500">{item.value}</span>
