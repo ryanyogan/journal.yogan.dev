@@ -1,4 +1,4 @@
-import { JournalEntry } from "@prisma/client";
+import { Analysis, JournalEntry } from "@prisma/client";
 import {
   Card,
   CardContent,
@@ -9,7 +9,7 @@ import {
 } from "../ui/card";
 
 interface EntryCardProps {
-  entry: JournalEntry;
+  entry: JournalEntry & { analysis: Analysis | null };
 }
 
 export function EntryCard({ entry }: EntryCardProps) {
@@ -26,13 +26,15 @@ export function EntryCard({ entry }: EntryCardProps) {
   });
 
   return (
-    <Card className="flex flex-col sm:h-[225px] cursor-pointer hover:border hover:shadow hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
+    <Card className="flex flex-col cursor-pointer hover:border hover:shadow hover:border-neutral-700/60 transition-colors ease-in-out duration-300">
       <CardHeader>
         <CardTitle>{date}</CardTitle>
         <CardDescription>{time}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1">{entry.content.slice(0, 75)}</CardContent>
-      <CardFooter>😁</CardFooter>
+      <CardContent className="text-ellipsis h-[100px]">
+        {entry?.analysis?.summary || ""}
+      </CardContent>
+      <CardFooter>{entry?.analysis?.negative ? "😡" : "🤗"}</CardFooter>
     </Card>
   );
 }
