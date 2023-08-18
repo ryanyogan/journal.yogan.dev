@@ -1,6 +1,7 @@
 "use client";
 
 import { updateEntry } from "@/lib/api";
+import { cn } from "@/lib/utils";
 import { Analysis, JournalEntry } from "@prisma/client";
 import { useState } from "react";
 import { useAutosave } from "react-autosave";
@@ -60,7 +61,13 @@ export function Editor({ entry }: EditorProps) {
       </h3>
       <Separator className="my-8" />
       <div className="flex gap-y-4 sm:gap-x-4 flex-col sm:justify-start sm:flex-row">
-        <div className="sm:flex-1">
+        <div className="sm:flex-1 relative">
+          <div
+            className={cn(
+              "hidden top-2 right-2 absolute h-3 w-3 bg-green-500 rounded-full",
+              isLoading && "block animate-pulse"
+            )}
+          />
           <Textarea
             spellCheck
             tabIndex={0}
