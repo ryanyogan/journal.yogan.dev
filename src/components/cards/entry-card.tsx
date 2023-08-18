@@ -31,7 +31,7 @@ export function EntryCard({ entry }: EntryCardProps) {
         <CardTitle>{date}</CardTitle>
         <CardDescription>{time}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1">{entry.content.slice(0, 50)}</CardContent>
+      <CardContent className="flex-1">{entry.content.slice(0, 75)}</CardContent>
       <CardFooter>😁</CardFooter>
     </Card>
   );

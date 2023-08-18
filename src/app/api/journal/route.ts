@@ -19,12 +19,14 @@ export async function POST(_req: Request) {
   const analysis = await analayze(entry.content);
   await db.analysis.create({
     data: {
+      userId: user.id,
       entryId: entry.id,
       summary: analysis!.summary,
       subject: analysis!.subject,
       negative: analysis!.negative,
       color: analysis!.color,
       mood: analysis!.mood,
+      sentimentScore: analysis!.sentimentScore,
     },
   });
 

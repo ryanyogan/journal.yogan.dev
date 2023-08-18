@@ -14,7 +14,7 @@ const parser = StructuredOutputParser.fromZodSchema(
       .describe(
         "is the journal entry negative? (i.e. does it contain negative emotions?)."
       ),
-    summary: z.string().describe("quiz summary of the entire entry."),
+    summary: z.string().describe("quick summary of the entire entry."),
     color: z
       .string()
       .describe(

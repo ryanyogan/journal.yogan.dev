@@ -1,3 +1,5 @@
+import { update } from "@/lib/actions";
+import { analayze } from "@/lib/ai";
 import { getUserByClerkId } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
@@ -26,7 +28,33 @@ export async function PATCH(req: Request, { params }: IParams) {
       },
     });
 
-    return NextResponse.json({ data: updatedEntry });
+    const analysis = await analayze(updatedEntry.content);
+
+    // const savedAnalysis = await db.analysis.upsert({
+    //   where: {
+    //     entryId: updatedEntry.id,
+    //   },
+    //   update: { ...analysis },
+    //   create: {
+    //     entryId: updatedEntry.id,
+    //     ...analysis,
+    //   },
+    // });
+
+    const savedAnalysis = await db.analysis.update({
+      where: {
+        entryId: updatedEntry.id,
+      },
+      data: {
+        ...analysis,
+      },
+    });
+
+    update(["/journal"]);
+
+    return NextResponse.json({
+      data: { ...updatedEntry, analysis: savedAnalysis },
+    });
   } catch (error) {
     console.error(error);
     return new NextResponse("Internal Server Error", { status: 500 });

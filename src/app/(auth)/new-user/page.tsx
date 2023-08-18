@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/shared/spinner";
 import { db } from "@/lib/db";
 import { currentUser } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
@@ -12,6 +13,8 @@ async function createNewUser() {
     },
   });
 
+  // The user was matched, they exist in Clerk.dev
+  // skip this and route them to the /journal path
   if (!matchedUser) {
     await db.user.create({
       data: {
@@ -28,5 +31,9 @@ async function createNewUser() {
 export default async function NewUser() {
   await createNewUser();
 
-  return <div>...loading</div>;
+  return (
+    <div className="flex h-full w-full justify-center items-center">
+      <Spinner />
+    </div>
+  );
 }
