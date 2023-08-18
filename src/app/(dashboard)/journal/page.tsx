@@ -10,7 +10,7 @@ export default async function JournalPage() {
   const entries = await getEntries();
 
   return (
-    <div className="mb-20">
+    <div className="mb-40 sm:mb-0">
       <h1 className="text-black font-semibold">Entries</h1>
       <h3 className="text-neutral-500">
         All of your glorious entries, or create a new one.

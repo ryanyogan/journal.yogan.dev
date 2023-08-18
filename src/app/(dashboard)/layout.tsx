@@ -14,11 +14,18 @@ export default function DashboardLayout({
       <div className="h-full overflow-hidden">
         <header className="relative w-full h-[60px] border-b border-neutral-200">
           <div className="h-full w-full px-6 flex items-center justify-between">
-            <Link href="/journal">
-              <h1 className="text-black text-xl font-bold tracking-tighter">
-                J O U R N A L
-              </h1>
-            </Link>
+            <div className="flex flex-row items-center justify-start gap-x-4">
+              <Link href="/journal">
+                <h1 className="text-black text-xl font-bold tracking-tighter">
+                  J O U R N A L
+                </h1>
+              </Link>
+              <Link href="/history" className="ml-4">
+                <h1 className="text-neutral-700 text-sm font-bold tracking-tighter">
+                  H I S T O R Y
+                </h1>
+              </Link>
+            </div>
             <UserButton />
           </div>
         </header>

@@ -34,7 +34,7 @@ export default async function EntryPage({ params }: IParams) {
   }
 
   return (
-    <div className="h-full w-full">
+    <div className="h-[calc(100vh+60px)] w-full">
       <Editor entry={entry} />
     </div>
   );

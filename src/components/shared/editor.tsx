@@ -77,7 +77,7 @@ export function Editor({ entry }: EditorProps) {
             value={value}
           />
         </div>
-        <div className="w-full sm:max-w-sm">
+        <div className="w-full sm:max-w-sm mb-40 sm:mb-0">
           <Card className="w-full">
             <CardHeader>
               <CardTitle className="flex flex-row items-center justify-between">
