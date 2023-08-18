@@ -16,7 +16,6 @@ export function NewEntryCard() {
 
     const data = await createNewEntry();
 
-    router.refresh();
     router.push(`/journal/${data.id}`);
   };
 

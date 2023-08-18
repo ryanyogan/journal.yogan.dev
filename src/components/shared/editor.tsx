@@ -60,24 +60,23 @@ export function Editor({ entry }: EditorProps) {
         saved, and analyed by the AI gods.
       </h3>
       <Separator className="my-8" />
-      <div className="flex gap-y-4 sm:gap-x-4 flex-col sm:justify-start sm:flex-row">
+      <div className="flex gap-y-4 sm:gap-x-4 flex-col-reverse sm:justify-start sm:flex-row mb-20">
         <div className="sm:flex-1 relative">
           <div
             className={cn(
-              "hidden top-2 right-2 absolute h-3 w-3 bg-green-500 rounded-full",
+              "hidden bottom-2 right-2 absolute h-3 w-3 bg-green-500 rounded-full",
               isLoading && "block animate-pulse"
             )}
           />
           <Textarea
             spellCheck
             tabIndex={0}
-            className="text-[16px] sm:text-sm text-black"
-            rows={20}
+            className="text-[16px] h-[300px] sm:h-[600px] sm:text-sm text-black"
             onChange={(e) => setValue(e.target.value)}
             value={value}
           />
         </div>
-        <div className="w-full sm:max-w-sm mb-40 sm:mb-0">
+        <div className="w-full sm:max-w-sm">
           <Card className="w-full">
             <CardHeader>
               <CardTitle className="flex flex-row items-center justify-between">
