@@ -1,7 +1,7 @@
-import { update } from "@/lib/actions";
 import { analayze } from "@/lib/ai";
 import { getUserByClerkId } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 type IParams = {
@@ -50,7 +50,8 @@ export async function PATCH(req: Request, { params }: IParams) {
       },
     });
 
-    update(["/journal"]);
+    // update(["/journal"]);
+    revalidatePath("/journal");
 
     return NextResponse.json({
       data: { ...updatedEntry, analysis: savedAnalysis },

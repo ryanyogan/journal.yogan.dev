@@ -5,6 +5,7 @@ import { getEntries } from "@/queries/get-entries";
 import Link from "next/link";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 export default async function JournalPage() {
   const entries = await getEntries();
